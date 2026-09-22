@@ -1,0 +1,16 @@
+<div style="text-align:center; margin-top: 50px;">
+  <h1>Buscador de Pokémon</h1>
+
+  <input type="text" [(ngModel)]="pokemonName" placeholder="Ej: pikachu" />
+  <button (click)="searchPokemon()">Buscar</button>
+
+  <div *ngIf="errorMessage" style="color: red;">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="pokemon">
+    <h2>{{ pokemon.name | titlecase }}</h2>
+    <img [src]="pokemon.image" alt="{{ pokemon.name }}" />
+    <p>Tipos: {{ pokemon.types.join(', ') }}</p>
+  </div>
+</div>

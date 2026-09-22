@@ -1,0 +1,14 @@
+<div style="text-align:center; margin-top: 50px;">
+  <h1>{{ saludo }}</h1> <!-- One-way binding -->
+
+  <!-- Two-way binding -->
+  <input (input)="mostrarNombre()" type="text" [(ngModel)]="nombre" placeholder="Escribe tu nombre" />
+
+  <!-- Mostrar saludo en tiempo real -->
+  <p *ngIf="nombre">Hola, {{ nombre }} </p>
+
+  <!-- One-way binding con método -->
+  @if(nombre){
+  <p *ngIf="nombre">En mayúsculas: {{ nombreEnMayusculas }}</p>
+  }
+</div>

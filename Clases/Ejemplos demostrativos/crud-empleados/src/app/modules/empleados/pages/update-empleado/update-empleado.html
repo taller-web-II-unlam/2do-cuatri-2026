@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col">
+        <h1>Actualizar empleado</h1>
+    </div>
+    <div class="col text-end">
+        <p-button [routerLink]="['/empleados/list-empleados']" icon="pi pi-undo"></p-button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <app-form-empleado [empleado]="empleado" (eventEmitterFormEmpleado)="updateEmpleado($event)"></app-form-empleado>
+    </div>
+</div>

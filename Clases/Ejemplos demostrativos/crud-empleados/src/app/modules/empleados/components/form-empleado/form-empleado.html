@@ -1,0 +1,42 @@
+<form [formGroup]="form" (ngSubmit)="sendEmpleado()">
+
+    <div class="row">
+        <div class="col">
+            <label for="nombre">Nombre:</label>
+            <input type="text" pInputText formControlName="nombre">
+
+            @if(form.get('nombre')?.hasError('required') && form.get('nombre')?.touched){
+            <span class="text-danger">Este campo es requerido</span>
+            }
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <label for="apellido">Apellido:</label>
+            <input type="text" pInputText formControlName="apellido">
+
+            @if(form.get('apellido')?.hasError('required') && form.get('apellido')?.touched){
+            <span class="text-danger">Este campo es requerido</span>
+            }
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <label for="empresa">Empresa:</label>
+            <p-select [options]="empresas" formControlName="empresa" appendTo="body" optionLabel="nombre"
+                optionValue="id" placeholder="Selecciona una empresa" class="w-full md:w-56" />
+
+            @if(form.get('empresa')?.hasError('required') && form.get('empresa')?.touched){
+            <span class="text-danger">Este campo es requerido</span>
+            }
+        </div>
+    </div>
+
+    <div class="row mt-3 text-center">
+        <div class="col">
+            <p-button [disabled]="form.invalid" type="submit" [label]="title()" [rounded]="true" [severity]="'success'"></p-button>
+        </div>
+    </div>
+
+
+</form>

@@ -1,0 +1,92 @@
+<section class="mx-5">
+  <h1 class="text-2xl font-bold">Pipes numéricos</h1>
+  <h3 class="text-xl font-thin">Pipes incluidos en Angular</h3>
+</section>
+
+<div class="stats stats-vertical lg:stats-horizontal shadow w-full">
+  <div class="stat">
+    <div class="stat-title">Number:'1.2-2'</div>
+    <!-- 
+    
+    - 1er parametro completa enteros con 0 hasta llegar a esa cantidad 
+
+      ej: 
+      123.45  | number : "7.1-4"
+      resultado : 0000123.45
+
+    - 2do parametro y 3er parametro
+      cuantos decimales minimos queres mostrar y maximo
+      ej:
+      123456789.123456 | number : "8.1-4"
+      123,456,789.1235
+      * Los enteros ya superan 8, así que no se rellenan.
+      * Los decimales se redondean a 4 (porque pediste máximo 4).
+
+    -->
+    <div class="stat-value">
+      {{ totalSells() | number : "7.1-4" }}
+    </div>
+    <div class="stat-desc">{{ totalSells() }}</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-title">Number:"1.1-2"</div>
+    <div class="stat-value">{{ totalSells() + 1234 | number : "1.1-2" }}</div>
+    <div class="stat-desc">{{ totalSells() }}</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-title">Currency</div>
+    <div class="stat-value">
+      <!-- 
+      
+      muestra en formato moneda
+     - 1er parametro : moneda (opcional)
+     Es el código ISO 4217 de la moneda.
+     primeras 2 letras del pais y una letra de la moneda (opcional)
+     Ejemplos:
+
+    'USD' → Dólar estadounidense      
+    'EUR' → Euro
+    'ARS' → Peso argentino
+    'JPY' → Yen japonés
+
+    - 2do parametro: display (opcional) 
+    controla como se muestra la moneda 
+    posibles valores : 
+    ! 'symbol' : $ / € / ¥ (símbolo)
+    ! 'code'	USD / EUR / JPY
+    ! 'symbol-narrow'	Solo el símbolo simple (a veces sin formato regional)
+
+    - 3er parametr0 : digitsinfo (opcional) 
+    funciona igual que el pipe number con los decimales
+
+    -4to parametro : locale (opcional)
+    Controla la forma regional de mostrar el número y la moneda:
+    ej:
+    {{ 1234.5 | currency:'EUR':'symbol':'1.2-2':'fr' }} → 1 234,50 €
+    {{ 1234.5 | currency:'USD':'symbol':'1.2-2':'en-US' }} → $1,234.50
+    {{ 1234.5 | currency:'ARS':'symbol':'1.2-2':'es-AR' }} → $ 1.234,50
+
+      -->
+
+      {{ totalSells() | currency : "JPY" : "code" : "1.4-4" }}<br>
+      {{ totalSells() | currency : "ARS" : "symbol" : "1.4-4" }}<br>
+      {{ totalSells() | currency : "CAD" : "symbol-narrow" : "1.4-4" : 'fr' }}
+      <br>
+    </div>
+    <div class="stat-desc">{{ totalSells() }}</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-title">Percent</div>
+    <div class="stat-value">
+      <!-- porcentaje 
+      - 1er parametro funciona igual que el pipe number 
+      
+      -->
+      {{ percent() | percent : "1.2-2" }}
+    </div>
+    <div class="stat-desc">{{ percent() }}</div>
+  </div>
+</div>

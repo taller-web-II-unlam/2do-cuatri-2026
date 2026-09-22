@@ -1,0 +1,62 @@
+<!-- Interpolation -->
+<h1>{{ title }}</h1>
+
+<!-- Interpolation con expresiones -->
+@if (courses().length === 0) {
+  <p>No hay cursos disponibles.</p>
+} @else {
+  <p>Tenemos {{ courses().length }} cursos disponibles.</p>
+}
+<p>Favoritos: {{ favoriteCourses().length }}</p>
+
+<!-- Two-Way Binding -->
+<input [(ngModel)]="search" placeholder="Buscar curso..." />
+
+<p>Buscando: {{ search }}</p>
+
+<!-- Control Flow -->
+@for (course of courses(); track course.id) {
+  <article>
+    <!-- Interpolation -->
+    <p>{{ course.category }}</p>
+    <h2>{{ course.name }}</h2>
+
+    <!-- @Switch -->
+    @switch (course.category) {
+      @case ('Frontend') {
+        <p>🎨 Curso de desarrollo Frontend</p>
+      }
+
+      @case ('Backend') {
+        <p>⚙️ Curso de desarrollo Backend</p>
+      }
+
+      @case ('DevOps') {
+        <p>🚀 Curso de DevOps</p>
+      }
+
+      @default {
+        <p>📚 Otra categoría</p>
+      }
+    }
+
+    <!-- Property Binding + Event Binding -->
+    <button [disabled]="selectedCourse()?.id === course.id" (click)="selectCourse(course)">
+      Seleccionar
+    </button>
+
+    <!-- Event Binding + Interpolation -->
+    <button (click)="toggleFavorite(course.id)">
+      {{ course.favorite ? '⭐' : '☆' }}
+    </button>
+  </article>
+} @empty {
+  <p>No hay cursos.</p>
+}
+
+@if (selectedCourse()) {
+  <p>
+    Curso seleccionado:
+    {{ selectedCourse()?.name }}
+  </p>
+}

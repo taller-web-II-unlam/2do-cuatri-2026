@@ -1,0 +1,14 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="list-group">
+        <p>Teclas de piano</p>
+        <ul>
+          @for (tecla of teclados; track tecla.numeroSonido) {
+            <li (click)="aplicarSonido(tecla.numeroSonido)" [style]="'background-color:' + tecla.color">{{tecla.teclaNombre}}</li>
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

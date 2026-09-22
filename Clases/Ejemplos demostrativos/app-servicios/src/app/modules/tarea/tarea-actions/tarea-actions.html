@@ -1,0 +1,16 @@
+<div style="text-align:center; margin-top: 50px;">
+  <h1>Lista de Tareas</h1>
+
+  <input type="text" [(ngModel)]="newTask" placeholder="Nueva tarea" />
+  <button (click)="addTask()">Agregar</button>
+
+  <ul>
+    <li *ngFor="let task of tasks">
+      <input type="checkbox" [checked]="task.completed" (change)="toggleTask(task.id)" />
+      <span [style.text-decoration]="task.completed ? 'line-through' : 'none'">
+        {{ task.title }}
+      </span>
+      <button (click)="deleteTask(task.id)">Eliminar</button>
+    </li>
+  </ul>
+</div>

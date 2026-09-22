@@ -1,0 +1,11 @@
+<h1>Contador: {{ contador() }}</h1>
+
+<h2>El doble es: {{ doble() }}</h2>
+
+<button (click)="incrementar()">+1</button>
+
+<button (click)="decrementar()">-1</button>
+
+@if(contador() >= 5){
+  <h3>¡Llegaste a 5!</h3>
+}

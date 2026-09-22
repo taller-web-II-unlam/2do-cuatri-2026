@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model empleado {
+  id         Int      @id @default(autoincrement())
+  nombre     String   @db.Char(50)
+  id_empresa Int?
+  apellido   String?  @db.Char(100)
+  empresa    empresa? @relation(fields: [id_empresa], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "id_empresa")
+}
+
+model empresa {
+  id       Int        @id @default(autoincrement())
+  nombre   String     @db.Char(50)
+  empleado empleado[]
+}

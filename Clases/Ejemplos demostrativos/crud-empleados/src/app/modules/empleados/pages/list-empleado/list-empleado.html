@@ -1,0 +1,9 @@
+<!-- seccion empleados -->
+ <p-toast />
+@if(spinner()){
+<app-spinner></app-spinner>
+}@else{
+<!-- seccion empleados -->
+<app-tabla-empleado (eventEmitterTableDeleteEmpleado)="listarEmpleados()" [empleados]="empleados()"></app-tabla-empleado>
+<!-- seccion empleados -->
+}

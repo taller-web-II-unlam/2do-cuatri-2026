@@ -1,0 +1,13 @@
+<div style="text-align:center; margin-top: 50px;">
+    <h1>📚 Buscador de Libros en Tiempo Real</h1>
+
+    <input #search type="text" (input)="onSearch(search.value)" placeholder="Escribe un título..." />
+
+    <ul *ngIf="results.length > 0">
+        <li *ngFor="let book of results">
+            <strong>{{ book.title }}</strong>
+            <span *ngIf="book.author_name"> - {{ book.author_name[0] }}</span>
+            <span *ngIf="book.first_publish_year"> ({{ book.first_publish_year }})</span>
+        </li>
+    </ul>
+</div>

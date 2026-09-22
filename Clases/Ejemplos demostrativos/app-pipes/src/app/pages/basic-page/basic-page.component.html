@@ -1,0 +1,112 @@
+<section class="mx-5">
+  <h1 class="text-2xl font-bold">Pipes Básicos</h1>
+  <h3 class="text-xl font-thin">Pipes incluidos en Angular</h3>
+</section>
+
+<div class="stats stats-vertical lg:stats-horizontal shadow w-full">
+  <div class="stat">
+    <div class="stat-title">Lowercase Pipe</div>
+    <div class="stat-value">
+      {{ nameUpper() | lowercase }}
+    </div>
+    <div class="stat-desc">
+      {{ nameUpper() }}
+    </div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-title">Uppercase Pipe</div>
+    <div class="stat-value">
+      {{ nameLower() | uppercase }}
+    </div>
+    <div class="stat-desc">{{ nameLower() }}</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-title">TitleCase Pipe</div>
+    <div class="stat-value">
+      {{ fullName() | titlecase }}
+    </div>
+    <div class="stat-desc">{{ fullName() }}</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="stats stats-vertical lg:stats-horizontal shadow w-full">
+  <div class="stat">
+    <div class="stat-title">Date Pipe</div>
+    <div class="stat-value">
+      {{ customDate() | date }}
+    </div>
+    <div class="stat-desc">{{ customDate() }}</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-title">Date|long|GMT-6</div>
+    <div class="stat-value">{{ customDate() | date : "long" : "GMT-6" }}</div>
+    <div class="stat-desc">{{ customDate() }}</div>
+  </div>
+</div>
+
+<div class="stats stats-vertical lg:stats-horizontal shadow w-full">
+  <div class="stat">
+    <div class="stat-title">Date:'yyyy MM'</div>
+    <div class="stat-value">{{ customDate() | date : "yyyy MM" }}</div>
+    <div class="stat-desc">{{ customDate() }}</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-title">Date|short|GMT-64</div>
+    <div class="stat-value">{{ customDate() | date : "short" : "GMT-4" }}</div>
+    <div class="stat-desc">{{ customDate() }}</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="stats stats-vertical lg:stats-horizontal shadow w-full">
+  <div class="stat">
+    <div class="stat-title">Date pipe</div>
+    <div class="stat-value">
+      {{ customDate() | date : "dd/MM/yyyy" }}
+    </div>
+    <div class="stat-desc">{{ customDate() }}</div>
+  </div>
+  <div class="stat">
+    <div class="stat-title">Date pipe</div>
+    <div class="stat-value">{{ customDate() | date : "HH:mm:ss" }}</div>
+    <div class="stat-desc">{{ customDate() }}</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-title">Date pipe</div>
+    <!-- 
+    EEEE dia de la semana
+    d nro de dia
+    MMMM nombre del mes
+    
+    -->
+    <div class="stat-value">{{ customDate() | date : "EEEE d, MMMM" }}</div>
+    <div class="stat-desc">{{ customDate() }}</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="flex flex-roww gap-2">
+  <h1 class="text-2xl font-bold">
+    Locale Actual:
+    <span class="badge badge-secondary">{{ currentLocale() }}</span>
+  </h1>
+
+  <button (click)="changeLocale('fr')" class="btn btn-primary">
+    Changer en français
+  </button>
+  <button (click)="changeLocale('en')" class="btn btn-primary">
+    Change to English
+  </button>
+  <button (click)="changeLocale('es')" class="btn btn-primary">
+    Cambiar a español
+  </button>
+</div>

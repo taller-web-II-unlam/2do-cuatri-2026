@@ -1,0 +1,20 @@
+<h1>PADRE</h1>
+
+<h2>Hijo viejo</h2>
+<p>Nombre actual: {{ nombre }}</p>
+
+<app-hijo-viejo
+  [nombre]="nombre"
+  (nombreChange)="actualizarNombre($event)"
+></app-hijo-viejo>
+
+
+<h1>PADRE</h1>
+
+<h2>Hijo viejo</h2>
+<p>Nombre actual: {{ nombreSignal() }}</p>
+
+<app-hijo-nuevo
+  [nombre]="nombreSignal()"
+  (nombreChange)="actualizarNombreSignal($event)"
+></app-hijo-nuevo>

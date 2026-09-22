@@ -1,0 +1,18 @@
+<!-- @for -->
+@for (curso of cursos(); track curso.id) {
+  <article>
+    <ul>
+      <li>
+        {{ curso.name }}
+      </li>
+      <li>
+        {{ curso.category }}
+      </li>
+      <li>
+        <!-- event click -->
+        <button [disabled]="cursoSeleccionado()?.id === curso.id" (click)="seleccionarCurso(curso)">Seleccionar</button>
+        <button (click)="tocarFavorito(curso)">{{ curso.favorite ? '⭐' : '☆' }}</button>
+      </li>
+    </ul>
+  </article>
+}

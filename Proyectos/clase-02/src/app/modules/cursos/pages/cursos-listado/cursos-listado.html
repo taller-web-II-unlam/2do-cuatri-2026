@@ -1,0 +1,23 @@
+<!-- interpolacion -->
+{{ titulo }}
+
+<br />
+
+<!-- computed -->
+<p>Cantidad total de cursos: {{ cursosContador() }}</p>
+<p>Cantidad total de cursos favoritos: {{ cursosFavoritos().length }}</p>
+
+<input (input)="cambioInput()" [(ngModel)]="search" type="text" placeholder="Buscar curso" />
+
+@if (loading) {
+  <p>Cargando...</p>
+} @else {
+  @if (cursos().length > 0) {
+    <app-tabla-listado-cursos
+      [cursos]="cursos()"
+      (eventEmitter)="tocarFavorito($event)"
+    ></app-tabla-listado-cursos>
+  } @else {
+    <p>No hay cursos pa</p>
+  }
+}
