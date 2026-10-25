@@ -1,0 +1,7 @@
+npm install @prisma/client@7 @prisma/adapter-pg pg dotenv
+npm install -D prisma@7 @types/pg @types/node
+npx prisma init --datasource-provider postgresql --output ../generated/prisma
+DATABASE_URL="postgresql://postgres:1234@localhost:5432/crudEmpleado?schema=public"
+agregar prisma.config.ts
+npx prisma db pull
+npx prisma generate

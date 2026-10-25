@@ -1,0 +1,39 @@
+<p-table [value]="empleados()" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template #header>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Empleado</th>
+            <th>Empresa</th>
+            <th>Acciones</th>
+        </tr>
+    </ng-template>
+    <ng-template #caption>
+        <div class="row">
+            <div class="col text-end">
+                <p-button icon="pi pi-plus" (onClick)="createEmpleado()"></p-button>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template #body let-empleado>
+        <tr>
+            <td>{{ empleado.id }}</td>
+            <td>{{ empleado.nombre }}</td>
+            <td>{{ empleado.apellido }}</td>
+            <td>{{ empleado.empresa }}</td>
+            <td>
+                <div class="row">
+                    <div class="col">
+                        <p-button (onClick)="editarEmpleado(empleado)" icon="pi pi-pencil"></p-button>
+                    </div>
+                    <div class="col">
+                        <p-button (onClick)="verEmpleado(empleado)" icon="pi pi-eye"></p-button>
+                    </div>
+                    <div class="col">
+                        <p-button (onClick)="eliminarEmpleado(empleado)" icon="pi pi-trash"></p-button>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
